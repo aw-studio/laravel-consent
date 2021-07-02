@@ -1,8 +1,91 @@
 # Laravel Consent
 
-## Usage
+This package provides headless blade-components for building consents, e.g. cookie-consents.
 
-In this example, a consent wrapper with to consents is presented.
+## Components
+
+The Laravel Consent package comes with three blade components: `<x-consent-wrapper>`, `<x-consent>` and `<x-consent-toggle>`.
+
+### Consent-wrapper
+
+The `<x-consent-wrapper>` component is used to group consents. You can style each wrapper to your liking. Every wrapper needs an unique `id`.
+
+| Attributes | Type   | required |
+| ---------- | ------ | -------- |
+| id         | String | ✅       |
+
+### Consent
+
+The `<x-consent>` component is used for actually giving a consent and MUST be wrapped by a `<x-consent-wrapper>` and neeeds a unique `id`.
+Each consent has a label and and checkbox. The label text is filled with the content of the default slot.
+
+When giving a consent, you may want to execute a local script or load a script from a source.
+
+If you want to load an `external script` after the consent the component should look as follows:
+
+```html
+<x-consent
+    id="google-maps"
+    preselect
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"
+    callback="initMap"
+>
+    I consent to use google maps.
+</x-consent>
+```
+
+The script will be appended to the `<head>`.
+
+If you want to execute a `local script` you can provide the code in the `<x-slot name="script">` of your `<x-consent>`:
+
+```html
+<x-consent id="analytics" preselect>
+    I consent to use google analytics.
+    <x-slot name="script">
+        (function (w, d, s, l, i) { console.log('consent a') w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js', }); var
+        f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l !=
+        'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f); })(window, document, 'script',
+        'dataLayer', 'GTM-ABCDEFG');
+    </x-slot>
+</x-consent>
+```
+
+| Attributes | Type   | Description                                                  | required |
+| ---------- | ------ | ------------------------------------------------------------ | -------- |
+| id         | String |                                                              | ✅       |
+| preselect  | bool   | wheter the checkbox should be preselected                    |          |
+| src        | bool   | external script src to be loaded after the consent was given |          |
+| callback   | bool   | callback to be called after external script was loaded       |          |
+
+### Consent-toogle
+
+Sometimes you may want to provide a 'one-time-consent'. This can be achieved using the `<x-consent-toggle>` component. You may place it anywhere in your markup where a corresponding `<x-consent>` exists. A toggle is linked to a consent by providing the same `id` to the toggle. A toggle may be styled to your liking.
+
+The following toggle will fire the callback of the `google-maps` consent:
+
+```html
+<x-consent-toggle
+    id="google-maps"
+    class="p-4 text-xs bg-gray-100"
+    button="Show Map"
+    button-class="inline-block px-2 py-1 mt-2 text-xs text-white bg-green-400 rounded-md cursor-pointer"
+>
+    I consent to using google maps.
+</x-consent-toggle>
+```
+
+| Attributes   | Type   | Description                 | required |
+| ------------ | ------ | --------------------------- | -------- |
+| id           | String | id of the consent to toggle | ✅       |
+| button       | String | button text                 | ✅       |
+| button-class | String | classes to style the button |          |
+
+## Full example
+
+In this example, a consent wrapper with to consents is presented:
 
 ```html
 <x-consent-wrapper
@@ -30,20 +113,4 @@ In this example, a consent wrapper with to consents is presented.
         </x-slot>
     </x-consent>
 </x-consent-wrapper>
-```
-
-You can provide a 'on-time-consent' by providing a `toggle`. The following toggle will fire the callback of the consent above:
-
-```html
-<x-consent-toggle
-    id="google-maps"
-    class="p-4 text-xs bg-gray-100"
-    button-class="inline-block px-2 py-1 mt-2 text-xs text-white bg-green-400 rounded-md cursor-pointer"
-    button="Show Map"
->
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloremque
-    dolorem qui culpa quas sunt magni animi rem illo consequatur aliquid
-    voluptates, illum, perspiciatis nam deserunt debitis suscipit labore
-    reiciendis.
-</x-consent-toggle>
 ```
