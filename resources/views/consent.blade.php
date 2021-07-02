@@ -3,11 +3,9 @@
 
     <input
         type="checkbox"
-        onclick="toggleConsent('{{ $id }}')"
-        id="consent-{{ $id }}"
-        data-id="{{  $id }}"
+        data-consent="{{  $id }}"
         @if($preselect)
-        data-preselect
+        checked
         @endif
     />
 </div>
