@@ -1,6 +1,7 @@
 # Laravel Consent
 
 This package provides headless blade-components for building consents, e.g. cookie-consents.
+Consents are being stored in `local-storage`.
 
 ## Components
 
@@ -10,9 +11,15 @@ The Laravel Consent package comes with three blade components: `<x-consent-wrapp
 
 The `<x-consent-wrapper>` component is used to group consents. You can style each wrapper to your liking. Every wrapper needs an unique `id`.
 
-| Attributes | Type   | required |
-| ---------- | ------ | -------- |
-| id         | String | ✅       |
+```html
+<x-consent-wrapper id="group-1">
+    <!-- consents go here -->
+</x-consent-wrapper>
+```
+
+| Attributes | Type   | Description                     | required |
+| ---------- | ------ | ------------------------------- | -------- |
+| id         | String | unique id for grouping consents | ✅       |
 
 ### Consent
 
@@ -90,7 +97,7 @@ In this example, a consent wrapper with to consents is presented:
 ```html
 <x-consent-wrapper
     class="fixed bottom-0 left-0 w-full p-8 bg-gray-200"
-    id="maps"
+    id="google"
 >
     <x-consent
         id="google-maps"
