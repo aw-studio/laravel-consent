@@ -3,6 +3,14 @@
 This package provides headless blade-components for building consents, e.g. cookie-consents.
 Consents are being stored in `local-storage`.
 
+## Installation
+
+Install via composer:
+
+```shell
+composer require aw-studio/laravel-consent
+```
+
 ## Components
 
 The Laravel Consent package comes with three blade components: `<x-consent-wrapper>`, `<x-consent>` and `<x-consent-toggle>`.
