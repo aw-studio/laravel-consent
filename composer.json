@@ -1,0 +1,35 @@
+{
+    "name": "aw-studio/laravel-consent",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jannescb",
+            "email": "jannes@aw-studio.de"
+        }
+    ],
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "autoload": {
+        "psr-4": {
+            "AwStudio\\LaravelConsent\\": "src"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "litstack/litstack": "^3.0",
+        "guzzlehttp/guzzle": "^7.3"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AwStudio\\LaravelConsent\\LaravelConsentServiceProvider"
+            ]
+        },
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
