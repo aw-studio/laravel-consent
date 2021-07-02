@@ -7,7 +7,7 @@ Consents are being stored in `local-storage`.
 
 The Laravel Consent package comes with three blade components: `<x-consent-wrapper>`, `<x-consent>` and `<x-consent-toggle>`.
 
-### Consent-wrapper
+### Consent Wrapper
 
 The `<x-consent-wrapper>` component is used to group consents. You can style each wrapper to your liking. Every wrapper needs an unique `id`.
 
@@ -67,7 +67,7 @@ If you want to execute a `local script` you can provide the code in the `<x-slot
 | src        | bool   | external script src to be loaded after the consent was given |          |
 | callback   | bool   | callback to be called after external script was loaded       |          |
 
-### Consent-toogle
+### Consent Toggle
 
 Sometimes you may want to provide a 'one-time-consent'. This can be achieved using the `<x-consent-toggle>` component. You may place it anywhere in your markup where a corresponding `<x-consent>` exists. A toggle is linked to a consent by providing the same `id` to the toggle. A toggle may be styled to your liking.
 
