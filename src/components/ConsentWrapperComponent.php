@@ -14,7 +14,8 @@ class ConsentWrapperComponent extends Component
      * @return void 
      */
     public function __construct(
-        public string $id
+        public string $id,
+        public ?string $save = null,
     ) {
         //
     }

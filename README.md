@@ -10,9 +10,10 @@ The Laravel Consent package comes with three blade components: `<x-consent-wrapp
 ### Consent Wrapper
 
 The `<x-consent-wrapper>` component is used to group consents. You can style each wrapper to your liking. Every wrapper needs an unique `id`.
+Each wrapper component shows the full list of consents and a `Save-Button`. After saving the wrapper is hidden.
 
 ```html
-<x-consent-wrapper id="group-1">
+<x-consent-wrapper id="group-1" save="Save">
     <!-- consents go here -->
 </x-consent-wrapper>
 ```
@@ -20,6 +21,7 @@ The `<x-consent-wrapper>` component is used to group consents. You can style eac
 | Attributes | Type   | Description                     | required |
 | ---------- | ------ | ------------------------------- | -------- |
 | id         | String | unique id for grouping consents | ✅       |
+| save       | String | Save-button text                |          |
 
 ### Consent
 
@@ -96,8 +98,10 @@ In this example, a consent wrapper with to consents is presented:
 
 ```html
 <x-consent-wrapper
+    id="google-group"
     class="fixed bottom-0 left-0 w-full p-8 bg-gray-200"
-    id="google"
+    button-class="px-2 py-1 mt-2 text-xs text-white bg-green-400 rounded-md cursor-pointer"
+    save="Speichern"
 >
     <x-consent
         id="google-maps"
