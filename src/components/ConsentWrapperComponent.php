@@ -27,6 +27,6 @@ class ConsentWrapperComponent extends Component
      */
     public function render()
     {
-        return view('laravel-consent::consentWrapper');
+        return view('laravel-consent::consent-wrapper');
     }
 }

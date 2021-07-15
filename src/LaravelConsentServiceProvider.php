@@ -4,6 +4,9 @@ namespace AwStudio\LaravelConsent;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use AwStudio\LaravelConsent\Components\ConsentComponent;
+use AwStudio\LaravelConsent\Components\ConsentToggleComponent;
+use AwStudio\LaravelConsent\Components\ConsentWrapperComponent;
 
 class LaravelConsentServiceProvider extends ServiceProvider
 {
@@ -13,9 +16,9 @@ class LaravelConsentServiceProvider extends ServiceProvider
      * @var array
      */
     protected $components = [
-        'consent'         => Components\ConsentComponent::class,
-        'consent-wrapper' => Components\ConsentWrapperComponent::class,
-        'consent-toggle' => Components\ConsentToggleComponent::class,
+        'consent'         => ConsentComponent::class,
+        'consent-wrapper' => ConsentWrapperComponent::class,
+        'consent-toggle'  => ConsentToggleComponent::class,
     ];
 
     /**

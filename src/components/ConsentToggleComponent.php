@@ -25,6 +25,6 @@ class ConsentToggleComponent extends Component
      */
     public function render()
     {
-        return view('laravel-consent::consentToggle');
+        return view('laravel-consent::consent-toggle');
     }
 }
