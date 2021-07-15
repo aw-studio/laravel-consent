@@ -9,9 +9,9 @@ class ConsentWrapperComponent extends Component
 
     /**
      * Create a new ConsentWrapperComponent insatnce.
-     * 
-     * @param string $id 
-     * @return void 
+     *
+     * @param string $id
+     * @return void
      */
     public function __construct(
         public string $id,
@@ -27,6 +27,6 @@ class ConsentWrapperComponent extends Component
      */
     public function render()
     {
-        return view('laravel-consent::consent-wrapper');
+        return view('laravel-consent::consentWrapper');
     }
 }

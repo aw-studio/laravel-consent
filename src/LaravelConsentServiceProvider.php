@@ -15,7 +15,7 @@ class LaravelConsentServiceProvider extends ServiceProvider
     protected $components = [
         'consent'         => Components\ConsentComponent::class,
         'consent-wrapper' => Components\ConsentWrapperComponent::class,
-        'consent-toggle' => Components\ConsenToggleComponent::class,
+        'consent-toggle' => Components\ConsentToggleComponent::class,
     ];
 
     /**
@@ -42,11 +42,11 @@ class LaravelConsentServiceProvider extends ServiceProvider
         ], 'views');
     }
 
-     /**
-     * Register blade components.
-     *
-     * @return void
-     */
+    /**
+    * Register blade components.
+    *
+    * @return void
+    */
     protected function registerBladeComponents()
     {
         foreach ($this->components as $name => $class) {

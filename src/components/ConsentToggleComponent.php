@@ -4,19 +4,18 @@ namespace AwStudio\LaravelConsent\Components;
 
 use Illuminate\View\Component;
 
-class ConsenToggleComponent extends Component
+class ConsentToggleComponent extends Component
 {
     /**
      * Create a new ConsentToggle insatnce.
-     * 
-     * @param string $id 
-     * @return void 
+     *
+     * @param string $id
+     * @return void
      */
     public function __construct(
         public string $id,
         public string $button
     ) {
-        
     }
 
     /**
@@ -26,6 +25,6 @@ class ConsenToggleComponent extends Component
      */
     public function render()
     {
-        return view('laravel-consent::consent-toggle');
+        return view('laravel-consent::consentToggle');
     }
 }
